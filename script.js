@@ -10,8 +10,10 @@ axios.get(emailEndpoint)
     .then(response => {
         // handle success
 
-        const result = response.data;
-        console.log(result);
+        const emailResult = response.data;
+        const randomEmail = emailResult.response;
+
+        listaEmail.innerHTML = randomEmail;
     })
     .catch(error => {
         // handle error
