@@ -1,5 +1,6 @@
-// ####### //
-axios.get('/user?ID=12345')
+const emailEndpoint = 'https://flynn.boolean.careers/exercises/api/random/mail';
+
+axios.get(emailEndpoint)
     .then(response => {
         // handle success
         console.log(response);
