@@ -6,28 +6,27 @@ const listaEmail = document.querySelector('.container ul');
 
 const emailEndpoint = 'https://flynn.boolean.careers/exercises/api/random/mail';
 
-axios.get(emailEndpoint)
+let displayOutput = "";
 
-    .then(response => {
+for (let i = 0; i < 10; i++) {
 
-        // handle success
+    axios.get(emailEndpoint)
 
-        const emailResult = response.data;
-        const randomEmail = emailResult.response;
+        .then(response => {
 
-        let displayOutput = "";
+            // handle success
 
-        for (let i = 0; i < 10; i++) {
+            const emailResult = response.data;
+            const randomEmail = emailResult.response;
 
             displayOutput += `<li>${randomEmail}</li>`;
 
-        }
+            listaEmail.innerHTML = displayOutput;
+        })
+        .catch(error => {
 
-        listaEmail.innerHTML = output;
-    })
-    .catch(error => {
-        
-        // handle error
-        console.log(error);
+            // handle error
+            console.log(error);
 
-    })
+        })
+}
