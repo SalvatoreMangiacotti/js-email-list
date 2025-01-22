@@ -10,7 +10,7 @@ const emailListArray = [];
 
 let displayOutput = "";
 
-const clickButton = (() => {
+const genRandomEmails = (() => {
 
     emailListArray.length = 0;
 
@@ -46,8 +46,6 @@ const clickButton = (() => {
 })
 
 
-
-
 // GESTIONE PULSANTE //
 
 const button = document.querySelector('.button');
@@ -55,6 +53,6 @@ const button = document.querySelector('.button');
 button.addEventListener('click', () => {
 
     displayOutput = "";
-    return clickButton();
-    
+    genRandomEmails();
+
 })

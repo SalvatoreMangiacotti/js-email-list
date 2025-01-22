@@ -22,9 +22,9 @@ ul li {
 }
 
 span {
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: 25px;
-    background-color: khaki;
+    background-color: lightskyblue;
     cursor: pointer;
     font-size: 1.5rem;
 }
