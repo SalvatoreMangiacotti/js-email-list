@@ -6,27 +6,55 @@ const listaEmail = document.querySelector('.container ul');
 
 const emailEndpoint = 'https://flynn.boolean.careers/exercises/api/random/mail';
 
+const emailListArray = [];
+
 let displayOutput = "";
 
-for (let i = 0; i < 10; i++) {
+const clickButton = (() => {
 
-    axios.get(emailEndpoint)
+    emailListArray.length = 0;
 
-        .then(response => {
+    for (let i = 0; i < 10; i++) {
 
-            // handle success
+        axios.get(emailEndpoint)
 
-            const emailResult = response.data;
-            const randomEmail = emailResult.response;
+            .then(response => {
 
-            displayOutput += `<li>${randomEmail}</li>`;
+                // handle success
 
-            listaEmail.innerHTML = displayOutput;
-        })
-        .catch(error => {
+                const emailResult = response.data;
+                const randomEmail = emailResult.response;
 
-            // handle error
-            console.log(error);
+                emailListArray.push(randomEmail);
 
-        })
-}
+                displayOutput += `<li>${randomEmail}</li>`;
+
+                listaEmail.innerHTML = displayOutput;
+
+                console.log(emailListArray);
+
+            })
+            .catch(error => {
+
+                // handle error
+
+                console.log(error);
+
+            })
+
+    }
+})
+
+
+
+
+// GESTIONE PULSANTE //
+
+const button = document.querySelector('.button');
+
+button.addEventListener('click', () => {
+
+    displayOutput = "";
+    return clickButton();
+    
+})
