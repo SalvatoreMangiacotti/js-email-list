@@ -13,9 +13,14 @@ let displayOutput = "";
 
 let maxEmailsLimit = 10;
 
-const genRandomEmails = (() => {
+
+
+const genRandomEmails = () => {
 
     emailListArray.length = 0;
+
+    displayOutput = "";
+
 
     for (let i = 0; i < maxEmailsLimit; i++) {
 
@@ -46,16 +51,16 @@ const genRandomEmails = (() => {
             })
 
     }
-})
+}
 
 
 // GESTIONE PULSANTE //
 
 const button = document.querySelector('.button');
 
-button.addEventListener('click', () => {
+button.addEventListener('click', genRandomEmails);
 
-    displayOutput = "";
-    genRandomEmails();
 
-})
+// ESECUZIONE DELLA FUNZIONE AL CARICAMENTO DELLA PAGINA
+
+genRandomEmails();
