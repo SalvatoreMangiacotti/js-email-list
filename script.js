@@ -2,6 +2,7 @@
 
 const listaEmail = document.querySelector('.container ul');
 
+
 // GESTIONE API //
 
 const emailEndpoint = 'https://flynn.boolean.careers/exercises/api/random/mail';
@@ -10,11 +11,13 @@ const emailListArray = [];
 
 let displayOutput = "";
 
+let maxEmailsLimit = 10;
+
 const genRandomEmails = (() => {
 
     emailListArray.length = 0;
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < maxEmailsLimit; i++) {
 
         axios.get(emailEndpoint)
 
